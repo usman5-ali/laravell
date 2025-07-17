@@ -1,0 +1,9 @@
+# Query: .dropdown-toggle::after 
+# ContextLines: 1
+
+1 result - 1 file
+
+resources\views\aside.blade.php:
+  29      }
+  30:     .dropdown-toggle::after {
+  31          margin-left: 7.25em;
