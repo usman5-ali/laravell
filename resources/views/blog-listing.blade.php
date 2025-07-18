@@ -152,7 +152,7 @@
                             <td>{{ Str::limit($blog->description, 50) }}</td>
                             <td>{{ $blog->created_at->format('d M Y') }}</td>
                             <td>
-                                <a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-sm btn-primary">View</a>
+                               <a href="https://wpcorex.com/" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">View</a>
                                 <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                 <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" class="d-inline">
                                     @csrf

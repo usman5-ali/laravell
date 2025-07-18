@@ -170,8 +170,8 @@
 
                 <!-- Header -->
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-gray-800">New Services Post</h2>
-                    <p class="mt-2 text-gray-500">Add a service image and write text on top of it.</p>
+                    <h2 class="text-3xl font-extrabold text-gray-800">New Testimonial Post</h2>
+                    <p class="mt-2 text-gray-500">Add a testimonial image and write text on top of it.</p>
                 </div>
 
                 <!-- Form -->
@@ -201,14 +201,14 @@
                     <!-- Blog Title -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                        <input name="title" type="text" placeholder="Enter blog title" required
+                        <input name="title" type="text" placeholder="Enter testimonial title" required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
                     </div>
 
                     <!-- Blog Description -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1" style="margin-top: 20px;">Description</label>
-                        <textarea name="description" rows="4" placeholder="Write your service description here..." required
+                        <textarea name="description" rows="4" placeholder="Write your testimonial description here..." required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"></textarea>
                     </div>
 

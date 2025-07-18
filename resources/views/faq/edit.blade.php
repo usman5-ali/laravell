@@ -2,9 +2,8 @@
 
 @section('content')
 
-
 <style>
-     .dropzone-form{
+         .dropzone-form{
         display: flex;
         justify-content: center;
         /* flex-direction: column; */
@@ -58,6 +57,13 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
+    .btnDiv {
+        position: absolute;
+        bottom: 15px;
+        left: 48%;
+        transform: translateX(-50%);
+    }
+
     .animate-fade-in {
         animation: fade-in 0.3s ease-in-out;
     }
@@ -74,48 +80,21 @@
         }
     }
 
-    .btnDiv {
-        position: absolute;
-        bottom: 15px;
-        left: 48%;
-        transform: translateX(-50%);
-    }
-
     @media (max-width: 230px) {
         #one {
-            width: 50% !important;
-        }
-
-        #two {
             width: 50% !important;
         }
     }
 </style>
 
 
-</head>
-<!-- <script>
-    @if(session('success'))
-    alertify.set('notifier', 'position', 'top-right');
-    alertify.success("{{ session('success') }}");
-    @endif
-
-    @if(session('error'))
-    alertify.set('notifier', 'position', 'top-right');
-    alertify.error("{{ session('error') }}");
-    @endif
-
-    @if($errors -> any())
-    alertify.set('notifier', 'position', 'top-right');
-    @foreach($errors -> all() as $error)
-    alertify.error("{{ $error }}");
-    @endforeach
-    @endif
-</script> -->
-
-<body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default text-slate-500 bg-light" >
-    <div class="absolute w-full  dark:hidden min-h-75 bg-light"></div>
+<body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default text-slate-500 bg-light">
+    <div class="absolute w-full dark:hidden min-h-75 bg-light">
+    </div>
+    <!-- sidenav  -->
     @include('aside')
+
+    <!-- end sidenav -->
 
     <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
         <!-- Navbar -->
@@ -156,11 +135,10 @@
                 </div>
             </div>
         </nav>
-
         <!-- end Navbar -->
 
         <!-- cards -->
-        <div class="w-full px-6 mx-auto">
+        <div class="w-full px-6  mx-auto">
             <!-- row 1 -->
 
 
@@ -170,14 +148,17 @@
 
                 <!-- Header -->
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-gray-800">New Services Post</h2>
-                    <p class="mt-2 text-gray-500">Add a service image and write text on top of it.</p>
+                    <h2 class="text-3xl font-extrabold text-gray-800">Edit Service Post</h2>
+                    <p class="mt-2 text-gray-500">Edit a services image and write text on top of it.</p>
                 </div>
 
                 <!-- Form -->
-                <form class="space-y-6" action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="space-y-6" method="POST"  action="{{ route('services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                     <!-- Blog Cover Image Upload with Text Overlay -->
+                    @method('PUT')
+
+                    <!-- Blog Cover Image Upload -->
+                       <!-- Blog Cover Image Upload with Text Overlay -->
                     <div class="dropzone-form mx-auto" style="max-width: 576px; width: 100%; margin-bottom: 1.5rem; " >
 
                         <!-- Dropzone Area -->
@@ -192,34 +173,31 @@
                                     </svg>
                                 </div>
                                 <p>Click to upload or drag and drop</p>
-                                <input type="file" required id="upload-file" name="image">
+                                <input type="file" required id="upload-file" name="uploaded-file">
                                 <p class="message">No files selected</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Blog Title -->
-                    <div>
+                    <!-- Title -->
+                    <div class="mt-3">
                         <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                        <input name="title" type="text" placeholder="Enter blog title" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
+                        <input type="text" name="title" value="{{ old('title', $service->title) }}" required
+                            class="form-control">
                     </div>
 
-                    <!-- Blog Description -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1" style="margin-top: 20px;">Description</label>
-                        <textarea name="description" rows="4" placeholder="Write your service description here..." required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"></textarea>
+                    <!-- Description -->
+                    <div  class="mt-3">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea name="description" rows="4" required class="form-control">{{ old('description', $service->description) }}</textarea>
                     </div>
 
-                    <!-- Submit Button -->
-                    <div class="d-flex justify-content-center">
-                        <button type="submit"
-                            class="bg-primary hover:bg-indigo-700 text-white font-semibold  rounded-lg shadow-md transition duration-300" style="padding: 7px;width: 130px;margin-top:15px">
-                            Submit
-                        </button>
+                    <!-- Submit -->
+                    <div  class="mt-3 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success bg-primary mt-2">Update Services</button>
                     </div>
                 </form>
+
             </div>
 
 
@@ -236,7 +214,7 @@
                                 document.write(new Date().getFullYear());
                             </script>,
                             made with by
-                            <a href="#" class="font-semibold hover:underline">COREX</a> for a better web.
+                            <a href="#" class="font-semibold hover:underline text-slate-700">COREX</a> for a better web.
                         </div>
 
                         <!-- Right Links -->
@@ -280,8 +258,8 @@
             }
         });
     </script>
-    
-    <script>
+
+           <script>
         const dropzoneBox = document.querySelector(".dropzone-box");
         const inputElement = document.querySelector("#upload-file");
         const dropZoneElement = inputElement.closest(".dropzone-area");
@@ -330,7 +308,6 @@
             }
         });
     </script>
-
 </body>
 
 </html>
