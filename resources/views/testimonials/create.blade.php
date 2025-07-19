@@ -4,7 +4,7 @@
 
 
 <style>
-     .dropzone-form{
+    .dropzone-form {
         display: flex;
         justify-content: center;
         /* flex-direction: column; */
@@ -58,6 +58,7 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
+
     .animate-fade-in {
         animation: fade-in 0.3s ease-in-out;
     }
@@ -113,13 +114,13 @@
     @endif
 </script> -->
 
-<body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default text-slate-500 bg-light" >
+<body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default text-slate-500 bg-light">
     <div class="absolute w-full  dark:hidden min-h-75 bg-light"></div>
     @include('aside')
 
     <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
         <!-- Navbar -->
-        <nav class="relative flex flex-wrap items-center justify-between px-0 py-3 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start bg-white my-4" navbar-main navbar-scroll="false">
+        <nav class="relative flex flex-wrap items-center justify-between px-0 py-3 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start bg-white mt-2 mb-4" navbar-main navbar-scroll="false">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                 <nav>
                     <!-- breadcrumb -->
@@ -160,73 +161,94 @@
         <!-- end Navbar -->
 
         <!-- cards -->
-        <div class="w-full px-6 mx-auto">
+        <div class="w-full px-6 mx-auto pb-2">
             <!-- row 1 -->
 
 
             <!-- cards row 2 -->
-            <!-- Blog Form -->
-            <div class="backdrop-blur-md p-8  shadow-2xl ring-1 ring-gray-200 space-y-8 rounded-2xl" style="background-color: white;padding: 20px;">
-
-                <!-- Header -->
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-gray-800">New Testimonial Post</h2>
-                    <p class="mt-2 text-gray-500">Add a testimonial image and write text on top of it.</p>
-                </div>
-
                 <!-- Form -->
-                <form class="space-y-6" action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                     <!-- Blog Cover Image Upload with Text Overlay -->
-                    <div class="dropzone-form mx-auto" style="max-width: 576px; width: 100%; margin-bottom: 1.5rem; " >
+                <div class="backdrop-blur-md p-8 shadow-2xl ring-1 ring-gray-200 space-y-8 rounded-2xl" style="background-color: white; padding: 20px;">
+                    <!-- Header -->
+                    <div class="text-center">
+                        <h2 class="text-3xl font-extrabold text-gray-800">New Testimonial Post</h2>
+                        <p class="mt-2 text-gray-500">Add a testimonial image and related details.</p>
+                    </div>
 
-                        <!-- Dropzone Area -->
-                        <div class="dropzone-box" id="upload-form">
-                            <div class="dropzone-area">
-                                <div class="file-upload-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2"
-                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                                    </svg>
+                    <!-- Form -->
+                    <form class="space-y-6" action="{{ route('testimonials.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        <!-- Image Upload -->
+                        <div class="dropzone-form mx-auto" style="max-width: 576px; width: 100%; margin-bottom: 1.5rem;">
+                            <div class="dropzone-box" id="upload-form">
+                                <div class="dropzone-area">
+                                    <div class="file-upload-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2"
+                                            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                        </svg>
+                                    </div>
+                                    <p>Click to upload or drag and drop</p>
+                                    <input type="file" required id="upload-file" name="image">
+                                    <p class="message">No files selected</p>
                                 </div>
-                                <p>Click to upload or drag and drop</p>
-                                <input type="file" required id="upload-file" name="image">
-                                <p class="message">No files selected</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Blog Title -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                        <input name="title" type="text" placeholder="Enter testimonial title" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
-                    </div>
+                        <!-- Title -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                            <input name="title" type="text" placeholder="Enter testimonial title" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
+                        </div>
 
-                    <!-- Blog Description -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1" style="margin-top: 20px;">Description</label>
-                        <textarea name="description" rows="4" placeholder="Write your testimonial description here..." required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"></textarea>
-                    </div>
+                        <!-- Position -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Position</label>
+                            <input name="position" type="text" placeholder="e.g. CEO, Manager, Client" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
+                        </div>
 
-                    <!-- Submit Button -->
-                    <div class="d-flex justify-content-center">
-                        <button type="submit"
-                            class="bg-primary hover:bg-indigo-700 text-white font-semibold  rounded-lg shadow-md transition duration-300" style="padding: 7px;width: 130px;margin-top:15px">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
+                        <!-- Rating -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Rating (1 to 5)</label>
+                            <select name="rating" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                                <option value="">Select rating</option>
+                                <option value="1">1 - Poor</option>
+                                <option value="2">2 - Fair</option>
+                                <option value="3">3 - Good</option>
+                                <option value="4">4 - Very Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1" style="margin-top: 20px;">Description</label>
+                            <textarea name="description" rows="4" placeholder="Write the testimonial..." required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"></textarea>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="d-flex justify-content-center">
+                            <button type="submit"
+                                class="bg-primary hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition duration-300"
+                                style="padding: 7px; width: 130px; margin-top: 15px;">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
 
 
 
             <!-- cards row 3 -->
 
-            <footer class=" bg-[#247498] bg-white text-dark py-4 my-4 rounded-2xl">
+            <footer class=" bg-[#247498] bg-white text-dark py-4 mt-4 rounded-2xl">
                 <div class="w-full px-6 mx-auto">
                     <div class="flex flex-col lg:flex-row justify-between items-center">
 
@@ -280,7 +302,7 @@
             }
         });
     </script>
-    
+
     <script>
         const dropzoneBox = document.querySelector(".dropzone-box");
         const inputElement = document.querySelector("#upload-file");

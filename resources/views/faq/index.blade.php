@@ -123,34 +123,34 @@
 
             <!-- cards row 2 -->
             <!-- Blog Form -->
-            <div class="backdrop-blur-md p-8  shadow-2xl ring-1 ring-gray-200 space-y-8 rounded-2xl" style="background-color: white;padding: 20px; height:720px;">
+            <div class="backdrop-blur-md p-8  shadow-2xl ring-1 ring-gray-200 space-y-8 rounded-2xl" style="background-color: white;padding: 20px; height:750px;">
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-gray-800">All Services</h2>
-                    <p class="mt-2 text-gray-500">Services Listing.</p>
+                    <h2 class="text-3xl font-extrabold text-gray-800">All Faqs</h2>
+                    <p class="mt-2 text-gray-500">Faqs Listing.</p>
                 </div>
-                @if ($services->count())
+                @if ($faqs->count())
                 <table class="table table-bordered" id="blogsTable">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>Question</th>
+                            <th>Answer</th>
                             <th>Created At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($services as $service)
+                        @foreach ($faqs as $faq)
                         <tr>
-                            <td>{{ $service->id }}</td>
-                            <td>{{ $service->title ?? 'N/A' }}</td>
-                            <td>{{ \Illuminate\Support\Str::limit($service->description ?? '', 50) }}</td>
-                            <td>{{ $service->created_at ? $service->created_at->format('d M Y') : 'N/A' }}</td>
+                            <td>{{ $faq->id }}</td>
+                            <td>{{ $faq->question ?? 'N/A' }}</td>
+                            <td>{{ $faq->answer ?? 'N/A' }}</td>
+                            <td>{{ $faq->created_at ? $faq->created_at->format('d M Y') : 'N/A' }}</td>
                             <td>
                                <a href="https://wpcorex.com/" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">View</a>
 
-                                <a href="{{ route('services.edit', $service->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('services.destroy', $service->id) }}" method="POST" class="d-inline">
+                                <a href="{{ route('faqs.edit', $faq->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('faqs.destroy', $faq->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</button>

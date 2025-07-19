@@ -106,7 +106,7 @@
                         <li class="text-sm leading-normal">
                             <a class="text-blue-500  opacity-50" href="javascript:;">Pages</a>
                         </li>
-                        <li class="text-sm pl-2 capitalize leading-normal text-dark before:float-left before:pr-2 before:text-dark before:content-['/']" aria-current="page">Services</li>
+                        <li class="text-sm pl-2 capitalize leading-normal text-dark before:float-left before:pr-2 before:text-dark before:content-['/']" aria-current="page">Faqs</li>
                     </ol>
 
                 </nav>
@@ -149,52 +149,34 @@
                 <!-- Header -->
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-gray-800">Edit Service Post</h2>
-                    <p class="mt-2 text-gray-500">Edit a services image and write text on top of it.</p>
+                    <p class="mt-2 text-gray-500">Edit a Faqs image and write text on top of it.</p>
                 </div>
 
                 <!-- Form -->
-                <form class="space-y-6" method="POST"  action="{{ route('services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+                <form class="space-y-6" method="POST"  action="{{ route('faqs.update', $faq->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <!-- Blog Cover Image Upload -->
                        <!-- Blog Cover Image Upload with Text Overlay -->
-                    <div class="dropzone-form mx-auto" style="max-width: 576px; width: 100%; margin-bottom: 1.5rem; " >
-
-                        <!-- Dropzone Area -->
-                        <div class="dropzone-box" id="upload-form">
-                            <div class="dropzone-area">
-                                <div class="file-upload-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2"
-                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                                    </svg>
-                                </div>
-                                <p>Click to upload or drag and drop</p>
-                                <input type="file" required id="upload-file" name="uploaded-file">
-                                <p class="message">No files selected</p>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <!-- Title -->
                     <div class="mt-3">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                        <input type="text" name="title" value="{{ old('title', $service->title) }}" required
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Question</label>
+                        <input type="text" name="question" value="{{ old('question', $faq->question) }}" required
                             class="form-control">
                     </div>
 
                     <!-- Description -->
                     <div  class="mt-3">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                        <textarea name="description" rows="4" required class="form-control">{{ old('description', $service->description) }}</textarea>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Answer</label>
+                        <textarea name="answer" rows="4" required class="form-control">{{ old('answer', $faq->answer) }}</textarea>
                     </div>
 
                     <!-- Submit -->
                     <div  class="mt-3 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success bg-primary mt-2">Update Services</button>
+                        <button type="submit" class="btn btn-success bg-primary mt-2">Update Faqs</button>
                     </div>
                 </form>
 
@@ -219,7 +201,7 @@
 
                         <!-- Right Links -->
                         <ul class="flex gap-3 text-sm">
-                            <li><a href="#" class="hover:underline">Services</a></li>
+                            <li><a href="#" class="hover:underline">Faqs</a></li>
                             <li><a href="#" class="hover:underline">Blog</a></li>
                         </ul>
 

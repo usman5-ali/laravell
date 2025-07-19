@@ -39,7 +39,7 @@
 
   <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
     <!-- Navbar -->
-    <nav class="relative flex flex-wrap items-center justify-between px-0 py-3 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start mt-4 bg-white" navbar-main navbar-scroll="false">
+    <nav class="relative flex flex-wrap items-center justify-between px-0 py-3 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start mt-2 bg-white" navbar-main navbar-scroll="false">
       <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
         <nav>
           <!-- breadcrumb -->
@@ -103,8 +103,8 @@
               <div class="flex flex-row -mx-3">
                 <div class="flex-none w-2/3 max-w-full px-3">
                   <div>
-                    <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Services</p>
-                    <h5 class="mb-2 font-bold dark:text-white">+3,462</h5>
+                    <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Blogs</p>
+                    <h5 class="mb-2 font-bold dark:text-white">{{ \App\Models\Blog::count() }}</h5>
                     <p class="mb-0 dark:text-white dark:opacity-60">
                       <span class="text-sm font-bold leading-normal text-red-600">-2%</span>
                       since last quarter
@@ -128,8 +128,8 @@
               <div class="flex flex-row -mx-3">
                 <div class="flex-none w-2/3 max-w-full px-3">
                   <div>
-                    <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Blogs</p>
-                    <h5 class="mb-2 font-bold dark:text-white">$103,430</h5>
+                    <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Services</p>
+                    <h5 class="mb-2 font-bold dark:text-white">{{ \App\Models\Service::count() }}</h5>
                     <p class="mb-0 dark:text-white dark:opacity-60">
                       <span class="text-sm font-bold leading-normal text-emerald-500">+5%</span>
                       than last month
@@ -155,7 +155,7 @@
                 <!-- text content -->
                 <div class="flex-none w-2/3 max-w-full px-3">
                   <div>
-                    <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-gray-500 dark:text-white dark:opacity-60">Total Revenue</p>
+                    <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-gray-500 dark:text-white dark:opacity-60">Faqs</p>
                     <h5 class="mb-2 font-bold text-gray-800 dark:text-white">$9455.00</h5>
                     <p class="mb-0 text-sm font-semibold text-green-500 dark:text-green-400">
                       ↑ 40% <span class="font-normal text-gray-500 dark:text-white dark:opacity-60">vs last month</span>
@@ -181,7 +181,7 @@
         <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
           <div class="relative flex flex-col min-w-0 break-words bg-white shadow-xl rounded-2xl bg-clip-border">
             <div class="flex-auto p-4">
-              <p class="text-sm font-semibold uppercase text-gray-500 mb-0">Total Task Done</p>
+              <p class="text-sm font-semibold uppercase text-gray-500 mb-0">Testimonials</p>
               <h5 class="font-bold mb-0">145</h5>
               <div class="flex justify-between items-center text-sm text-gray-500">
                 <span>Progress</span>

@@ -56,7 +56,7 @@
     }
 </style>
 
-<aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0">
+<aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-2 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0">
     <div class="h-19">
         <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700" href="#" target="_blank">
             <img src="{{ asset('logo.jpg') }}" class="inline h-full max-w-full transition-all duration-200 dark:hidden ease-nav-brand max-h-8" alt="main_logo" style="width:80%">
@@ -122,17 +122,17 @@
             <!-- FAQs (Static) -->
             <div class="accordion-item">
                 <h2 class="accordion-header" id="faqHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    <button class="accordion-button  {{ request()->routeIs('faq*') ? '' : 'collapsed' }} {{ request()->routeIs('faq*') ? 'bg-blue-500/13' : '' }}" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faqCollapse" aria-expanded="false" aria-controls="faqCollapse">
                         <i class="fa-solid fa-question-circle text-warning me-2"></i> FAQs
                     </button>
                 </h2>
                 <div id="faqCollapse" class="accordion-collapse collapse" aria-labelledby="faqHeading" data-bs-parent="#sidebarAccordion">
                     <div class="accordion-body d-flex flex-column">
-                      <a class="dropdown-item {{ request()->routeIs('blogs') ? 'bg-blue-500/13 rounded' : '' }}" href="{{ route('blogs') }}">
+                      <a class="dropdown-item {{ request()->routeIs('faqs.create') ? 'bg-blue-500/13 rounded' : '' }}" href="{{ route('faqs.create') }}">
                             <i class="fa-solid fa-pen-to-square"></i> Create FAQ
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href=" {{ route('faq.index') }}">
                             <i class="fa-solid fa-list"></i> FAQ Listing
                         </a>
                     </div>

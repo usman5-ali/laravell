@@ -170,45 +170,27 @@
 
                 <!-- Header -->
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-gray-800">New Services Post</h2>
-                    <p class="mt-2 text-gray-500">Add a service image and write text on top of it.</p>
+                    <h2 class="text-3xl font-extrabold text-gray-800">New Faq</h2>
+                    <p class="mt-2 text-gray-500">Add a testimonial image and write text on top of it.</p>
                 </div>
 
                 <!-- Form -->
-                <form class="space-y-6" action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="space-y-6" action="{{ route('faqs.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                      <!-- Blog Cover Image Upload with Text Overlay -->
-                    <div class="dropzone-form mx-auto" style="max-width: 576px; width: 100%; margin-bottom: 1.5rem; " >
-
-                        <!-- Dropzone Area -->
-                        <div class="dropzone-box" id="upload-form">
-                            <div class="dropzone-area">
-                                <div class="file-upload-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" stroke-width="2"
-                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                                    </svg>
-                                </div>
-                                <p>Click to upload or drag and drop</p>
-                                <input type="file" required id="upload-file" name="image">
-                                <p class="message">No files selected</p>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <!-- Blog Title -->
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                        <input name="title" type="text" placeholder="Enter service title" required
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Question</label>
+                        <input name="title" type="text" placeholder="Enter faq Question" required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
                     </div>
 
                     <!-- Blog Description -->
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1" style="margin-top: 20px;">Description</label>
-                        <textarea name="description" rows="4" placeholder="Write your service description here..." required
+                        <label class="block text-sm font-medium text-gray-700 mb-1" style="margin-top: 20px;">Answer</label>
+                        <textarea name="description" rows="4" placeholder="Write your faq answer" required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"></textarea>
                     </div>
 

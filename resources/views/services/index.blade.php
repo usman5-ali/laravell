@@ -69,7 +69,7 @@
 
     <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
         <!-- Navbar -->
-        <nav class="relative flex flex-wrap items-center justify-between px-0 py-3 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start bg-white my-4" navbar-main navbar-scroll="false">
+        <nav class="relative flex flex-wrap items-center justify-between px-0 py-3 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start bg-white mt-2 mb-4" navbar-main navbar-scroll="false">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                 <nav>
                     <!-- breadcrumb -->
@@ -123,7 +123,7 @@
 
             <!-- cards row 2 -->
             <!-- Blog Form -->
-            <div class="backdrop-blur-md p-8  shadow-2xl ring-1 ring-gray-200 space-y-8 rounded-2xl" style="background-color: white;padding: 20px; height:720px;">
+            <div class="backdrop-blur-md p-8  shadow-2xl ring-1 ring-gray-200 space-y-8 rounded-2xl" style="background-color: white;padding: 20px; height:750px;">
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-gray-800">All Services</h2>
                     <p class="mt-2 text-gray-500">Services Listing.</p>
