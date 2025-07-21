@@ -62,6 +62,9 @@ Route::put('/testimonials/{testimonial}', [TestimonialController::class, 'update
 Route::delete('/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
 
 // FAQs Routes
+// FAQs Routes
+
+Route::get('/faqs/get-all', [FaqController::class, 'getall'])->name('faqs.all'); // ✅ Only once
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create');
 Route::post('/faqs-store', [FaqController::class, 'store'])->name('faqs.store');
@@ -69,4 +72,4 @@ Route::get('/faqs/{faq}', [FaqController::class, 'show'])->name('faqs.show');
 Route::get('/faqs/{faq}/edit', [FaqController::class, 'edit'])->name('faqs.edit');
 Route::put('/faqs/{faq}', [FaqController::class, 'update'])->name('faqs.update');
 Route::delete('/faqs/{faq}', [FaqController::class, 'destroy'])->name('faqs.destroy');
-Route::get('/faqs/get-all', [FaqController::class, 'getall'])->name('faqs.all');  
+ 

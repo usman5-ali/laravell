@@ -13,10 +13,8 @@ class FaqController extends Controller
         $faqs = Faq::latest()->get();
         return view('faq.index', compact('faqs'));
     }
-
     public function getall()
     {
-        //
         $faq = Faq::latest()->get();
         return $faq;
     }
